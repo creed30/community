@@ -158,6 +158,24 @@ $(document).ready(function () {
 	var zip = param.zip;
 	var quantity = 20; // Bug, 30318 is not loading.
 	$('.ziptext').text(zip);
+
+
+	var settings = {
+		"url": "https://openepd.buildingtransparency.org/api/epds?page_number=1&page_size=100",
+		"method": "GET",
+		"timeout": 0,
+		"headers": {
+			"accept": "application/json",
+			"filter": "{\"epds.name\":\"ASTM International\"}",
+			"Authorization": "Bearer 204ad15687571d9c62bdfa780526b1514c090f68"
+		},
+		};
+
+	$.ajax(settings).done(function (response) {
+	console.log(response);
+	});
+
+
 	//if(param["zip"]){
 	//  	zip = param["zip"]
 	//}
